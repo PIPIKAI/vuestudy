@@ -1,0 +1,33 @@
+// 这个是vscode 自定义的html的 vuejs 模板
+{
+	"html:5": {
+		"prefix": "svue",
+		"body": [
+			"<!DOCTYPE html>",
+			"<html>",
+			"<head>",
+				"\t<meta charset=\"UTF-8\">",
+				"\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+				"\t<meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">",
+				"\t<title></title>",
+			"</head>",
+			"<body>",
+				"\t<div id=\"app\">",
+				"\t\t<h2>{{message}}</h2>",
+				"\t</div>",
+				"\t<script src=\"../js/vue.js\"></script>",
+				"\t<script>",
+				"\t\tconst app = new Vue({",
+					"\t\t\tel :'#app', //表示要管理的元素",
+					"\t\t\tdata :{",
+						"\t\t\t\tmessage : 'hello world!',",
+						"\t\t\t\tname : 'ppk', ",
+					"\t\t\t}",
+				"\t\t})",
+				"\t</script>",
+			"</body>",
+			"</html>",
+		],
+		"description": "HTML5"
+	}
+}
