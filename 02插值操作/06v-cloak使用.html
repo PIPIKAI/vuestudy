@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html_snippets</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <h2>{{message}}</h2>
+        <h2>就不会闪现 message 了</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        setTimeout(function (){
+            // 在vue 解析之前，div中有一个属性 v-cloak
+            // 解析后就没了
+            const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                message : 'hello world!',
+                name : 'ppk', 
+            }
+            })
+        },1000)
+    </script>
+</body>
+</html>
