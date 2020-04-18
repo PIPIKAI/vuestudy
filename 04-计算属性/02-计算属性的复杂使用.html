@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html_snippets</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{message}}</h2>
+        <h2>{{totleprice}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                message : '总价格为',
+                name : 'ppk', 
+                books :[
+                {title : '平凡的世界'  , price : 68 ,id : 1},
+                {title : '时间简史'  , price : 98 ,id : 2},
+                {title : '代码大全'  , price : 58 ,id : 3},
+                {title : 'c++程序设计'  , price : 38 ,id : 4},
+                {title : '算法竞赛指南'  , price : 78 ,id : 5},
+                ]
+            },
+            computed :{
+                totleprice:function(){
+                    let res=0;
+                    for(let i=0 ;i<this.books.length ;i++){
+                        res+=this.books[i].price;
+                    }
+                    for(let book of this.books){
+                        res+=book.price
+                    }
+                    return res/2
+                }
+            }
+        })
+    </script>
+</body>
+</html>
