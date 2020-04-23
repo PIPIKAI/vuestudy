@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html_snippets</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="btnclick()">按钮1</button>
+        <button @click="btnclick">按钮2</button>
+        <!-- 没参数时省略小括号是可以的 -->
+        <!-- 如果需要参数而省略了小括号，会自动将浏览器的event传经来 -->
+        <button @click="bnt2">按钮3</button>
+        <!-- 方法定义是，我们需要event，还要其他参数 -->
+        <!-- $event -->
+        <button @click="bnt3('123',$event)">按钮4</button>
+        
+
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                counter : 0, 
+            },
+            methods:{
+                btnclick(){
+                    console.log('btnclick');
+                },
+                // 如果要参数没有参数时，形参为undefine
+                bnt2(a){
+                    console.log('-----',a);
+                    
+                },
+                bnt3(a,event){
+                    console.log('-----',a,event);
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>
