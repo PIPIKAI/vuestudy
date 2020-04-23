@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html_snippets</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{fullName}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                lastname : 'jack',
+                firstname : 'zhong', 
+            },
+            computed :{
+                fullName : {
+                    set : function(newValue){
+                        console.log("调用了set");
+                        const newname=newValue.split(' ');
+                        this.firstname=newname[0];
+                        this.lastname=newname[1];
+                    },
+                    get : function(){
+                        return this.firstname+' '+this.lastname;
+                    }
+                },
+            }
+        })
+    </script>
+</body>
+</html>
