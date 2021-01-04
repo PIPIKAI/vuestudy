@@ -10,11 +10,14 @@
         .active{
             color: royalblue;
         }
+        .underline{
+            font-size: larger;
+        }
     </style>
     <div id="app">
         <h2 class="active">{{message}}</h2>
         <h2 :class="avtives">{{message}}</h2>
-        <h2 class="title" :class="{active : isactive , unerline : isline}">{{message}}</h2>
+        <h2 class="title" :class="{active : isactive , underline : isline}">{{message}}</h2>
         <button v-on:click="bntclick">变色</button>
     </div>
     <script src="../js/vue.js"></script>
@@ -31,6 +34,7 @@
             methods:{
                 bntclick: function(){
                     this.isactive= !this.isactive
+                    this.isline = !this.isline
                 }
             }
         })

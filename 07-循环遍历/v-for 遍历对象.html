@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for= "(value,key,index) in  objection" >{{index+1}} - {{key}} - {{value}}  </li> 
+            <!-- 原来这里不是指index 是下标 , 而是指第一个是value  第二个是key ,第三个是 value, 和名称无关 , 只和第几个有关 -->
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                objection : {
+                    name : 'ppk' ,
+                    weight  : '160' ,
+                    height : '188',
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -15,6 +15,7 @@
         <!-- 方法定义是，我们需要event，还要其他参数 -->
         <!-- $event -->
         <button @click="bnt3('123',$event)">按钮4</button>
+        <button @click="bnt4">按钮5</button>
         
 
     </div>
@@ -37,7 +38,11 @@
                 bnt3(a,event){
                     console.log('-----',a,event);
                     
+                },
+                bnt4(event){
+                    console.log('----',event);
                 }
+
             }
         })
     </script>

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>html_snippets</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
 </head>
 <body>
-    
     <div id="app">
-        <h2  :style="[basestyle1 ,basestyle2]">{{message}}</h2>
+        <h2 v-if = isshow>{{message}}</h2>
+        <h2 v-show = isshow>{{message}}</h2>  
+        <!-- 当使用频率很高的时候 , 应该用 v-show -->
     </div>
     <script src="../js/vue.js"></script>
     <script>
@@ -16,10 +18,8 @@
             el :'#app', //表示要管理的元素
             data :{
                 message : 'hello world!',
-                myfontcolor : 'red',
-                basestyle1: {background: 'green'},
-                basestyle2: { font :'100px',}
-            },
+                isshow : true 
+            }
         })
     </script>
 </body>

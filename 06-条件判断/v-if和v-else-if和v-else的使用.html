@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+            <h3 @click= "isclick">
+                <li v-if= "isShow == 0 " >{{message}}</li>
+                <li v-else-if = "isShow == 1" >222</li>
+                <li v-else >333</li>
+            </h3>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                isShow : 0,
+                message : "你好啊"
+            },
+            methods : {
+                isclick(){
+                    this.isShow = (1+this.isShow)%3;
+                    console.log(this.isShow);
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>
