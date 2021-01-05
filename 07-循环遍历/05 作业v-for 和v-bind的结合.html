@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html_snippets</title>
+</head>
+<body>
+    <!-- 点击列表哪一项 ，那么该项的文字文字变红色 -->
+    <style>
+        .active{
+            color: blue;
+        }
+    </style>
+    <div id="app">
+        <ul>
+            <li v-for="(mv,index) in movies"   @click="bntclick(index)" :class="{'active' : index==tp}">{{mv}}</li>
+            <!-- <li v-for="(m,index) in movies" :class="getclass()">{{index}}-{{m}}</li> -->
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                tp : 0,
+                message : 'hello world!',
+                name : 'ppk', 
+                movies:['海尔兄弟' ,'海王','火影忍者','进击的巨人'],
+            },
+            methods: {
+                bntclick :function(id){
+                   this.tp=id;
+                },
+            }
+        })
+    </script>
+</body>
+</html>
