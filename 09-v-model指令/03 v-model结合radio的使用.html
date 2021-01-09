@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <!-- lable 的好处 点击文字的时候会跳到输入框 -->
+        <label for="male ">
+            <!-- 如果这里不用 v-model 的话 那么就要使用 name ="sex" -->
+            <input type="radio" id = "male" value="男" v-model = "sex">男
+        </label>
+        <label for="female ">
+            <input type="radio" id = "female" value="女" v-model = "sex">女
+        </label>
+        <p>{{sex}}</p>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                message : 'hello world!',
+                name : 'ppk', 
+                sex : '男'
+            }
+        })
+    </script>
+</body>
+</html>

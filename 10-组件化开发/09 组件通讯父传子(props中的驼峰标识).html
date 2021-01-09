@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <template id= "cpn">
+        <div>
+            <h2>{{cMessage}}</h2>
+            <h2>{{mInfo}}</h2>
+        </div>
+    </template>
+    <div id="app">
+        <!-- 直接用驼峰标识符不行 , 会找不到,然后就会使用默认值 -->
+        <cpn :cMessage = "message" :mInfo = "info" ></cpn>
+
+        <!-- 要正确使用应该加上 - -->
+        <cpn :c-message = "message" :m-info = "info" ></cpn>
+    </div>
+    
+    <script src="../js/vue.js"></script>
+    <script>
+        const cpn ={
+            template : '#cpn' ,
+            data (){
+                return {}
+            },
+            props : {
+                cMessage : {
+                    type : String ,
+                    default : 'default'
+                },
+                mInfo :{
+                    type : Object,
+                    default (){
+                        return {
+                            default : "default"
+                        }
+                    }
+                }
+            }
+        }
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                message : 'hello world!',
+                info : {
+                    height : 180 ,
+                    weight : 150 ,
+                    sex : 'male' ,
+                }
+            },
+            components : {
+                cpn
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <template id= "cpn">
+        <div>
+            <h2>props : {{cnum1}}</h2>
+            <h2>data : {{fcnum1}}</h2>
+            <input type="number" :value="fcnum1" @input="num1Change">
+            <h2>props : {{cnum2}}</h2>
+            <h2>data : {{fcnum2}}</h2>
+            <input type="number" :value="fcnum2" @input="num2Change">
+        </div>
+    </template>
+    <div id="app">
+        <cpn :cnum1="num1" :cnum2="num2" @ctof1="cdata1" @ctof2="cdata2"></cpn>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        // 实现功能
+        // 1. 修改输入框里的数字
+        // 子类中的数据要改变
+        // 父类中的data也要改变
+        // num1 是 num2 的100倍
+        // num2 是 num1 的 1/100倍
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                num1 : 0 ,
+                num2 : 1,
+            },
+            methods:{
+                cdata1(value){
+                    this.num1=parseFloat(value) 
+                },
+                cdata2(value){
+                    this.num2=parseFloat(value) 
+                }
+            },
+            components :{
+                cpn : {
+                    template : "#cpn",
+                    props :{
+                        cnum1 : Number,
+                        cnum2 : Number,
+                    },
+                    data (){
+                        return {
+                            fcnum1 : this.cnum1,
+                            fcnum2 : this.cnum2,
+                        }
+                    },
+                    methods :{
+                        num1Change(event){
+                            this.fcnum1 = parseFloat(event.target.value)
+                            this.$emit("ctof1",this.fcnum1)
+
+                            this.fcnum2 = this.fcnum1 * 100
+                            this.$emit("ctof2",this.fcnum2)
+                        },
+                        num2Change(event){
+                            this.fcnum2 = parseFloat(event.target.value)
+                            this.$emit("ctof2",this.fcnum2)
+
+                            this.fcnum1 = this.fcnum2 / 100
+                            this.$emit("ctof1",this.fcnum1)
+                        }
+                    }
+                },
+                
+            }
+        })
+    </script>
+</body>
+</html>

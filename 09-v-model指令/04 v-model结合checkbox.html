@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <!-- 单选框 -->
+        <label for="agree">
+            <input type="checkbox" value="agree" v-model = "isagree">同意协议
+        </label>
+        <p><button :disabled = "! isagree">下一步</button></p>
+        <p>您选择的是 : {{isagree}}</p>
+        <!-- 多选框 -->
+        <label for="habit">
+            <input type="checkbox" value="篮球" v-model = "habit">篮球
+            <input type="checkbox" value="足球" v-model = "habit">足球
+            <input type="checkbox" value="羽毛球" v-model = "habit">羽毛球
+            <input type="checkbox" value="乒乓球" v-model = "habit">乒乓球
+        </label>
+        <p>您选择的是 : {{habit}}</p>
+        <!-- 值绑定 -->
+        <label  v-for= "item in Originhabit" :for="item">
+            <input type="checkbox"  :id="item" :value= "item" v-model= "habit">{{item}}
+        </label>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                message : 'hello world!',
+                name : 'ppk', 
+                isagree : false,
+                habit : [],
+                Originhabit : [ '羽毛球' , '乒乓球' ,'篮球',' 足球' , '台球','高尔夫球']
+            }
+        })
+    </script>
+</body>
+</html>

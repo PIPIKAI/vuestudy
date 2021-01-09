@@ -22,7 +22,7 @@
                 </thead>
                 <tbody>
                     <tr v-for = "(item , index) in books">
-                        <td>{{item.id}}</td>
+                        <td>{{index+1}}</td>
                         <td>{{item.name}}</td>
                         <td>{{item.date}}</td>
                         <td>{{item.price | showPrice}}</td>

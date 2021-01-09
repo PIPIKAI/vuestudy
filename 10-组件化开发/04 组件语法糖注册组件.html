@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div id='app'>
+        <!-- 3. 使用组件 -->
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+        <cpn1></cpn1>
+    </div>
+    
+    <script src="../js/vue.js"></script>
+    <script>
+        // 全局组件注册的语法糖
+        // const cpnC=Vue.extend()
+
+        // 2. 注册全局组件 直接在后面第二个参数注册
+        Vue.component('my-cpn' , {
+            template : `
+            <div>
+                <h2>我是标题</h2>
+                <p>我是段落</p>
+            </div>
+            `
+        })
+
+
+        // 
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                message : 'hello world!',
+                name : 'ppk', 
+            },
+            components :{
+                cpn1 :{
+                    // 局部组件的语法糖
+                    template : `
+                    <div>
+                        <h2>我是标题222</h2>
+                        <p>我是段落222</p>
+                    </div>
+                    `
+                }
+            }
+        })
+    </script>
+</body>
+</html>

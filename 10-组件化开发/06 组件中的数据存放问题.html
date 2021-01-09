@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <cpn2></cpn2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <!--  template写法 1 通过template 标签-->
+    <template id= 'cpn2'>
+        <div>
+            <h2>{{title}}</h2>
+            <p>我是段落</p>
+        </div> 
+    </template>
+    <script>
+
+        Vue.component('cpn2' ,{
+            //  分离写法
+            template :  '#cpn2',
+            //  数据存放只能这么用 
+            //  只能是一个函数
+            data(){
+                return {
+                    title : 'HHHHH'
+                }
+            }
+        } )
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                // 不能直接用 app 里的data
+                title : 'hello world!',
+            }
+        })
+    </script>
+</body>
+</html>

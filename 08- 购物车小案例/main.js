@@ -53,6 +53,9 @@ const app =new Vue({
             // for(let i = 0 ; i<this.books.length ; i++){
             //     res+= this.books[i].price * this.books[i].count ;
             // }
+            // for(let book in this.books){
+            //  用 in 的话是获得索引值
+            // }
             for(let book of this.books){
                 res+= book.price * book.count ;
             }
@@ -66,3 +69,4 @@ const app =new Vue({
     }
 
 })
+
