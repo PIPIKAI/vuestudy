@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <cpn :c-num1 = 'num1' :c-num2 = 'num2' @wc-num1="Num2Change" @wc-num2="Num1Change"></cpn>
+    </div>
+     
+    <template id= 'cpn'>
+        <div>
+            <h2>data : {{cNum1}}</h2>
+            <h2>props : {{dcNum1}}</h2>
+            <input type="number" v-model ="dcNum1" >
+            <h2>data : {{cNum2}}</h2>
+            <h2>props : {{dcNum2}}</h2>
+            <input type="number" v-model = "dcNum2">
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const cpn ={
+            template : '#cpn',
+            props :{
+                cNum1 : Number,
+                cNum2 : Number,
+            },data(){
+                return {
+                    dcNum1 : this.cNum1 ,
+                    dcNum2 : this.cNum2 ,
+                }
+            },
+            watch :{
+                // dcNum1(newValue,OldValue){ 
+                dcNum1(newValue){
+                    this.dcNum2 = newValue * 100;
+                    this.$emit("wc-num2",newValue)
+                },
+                dcNum2(newValue){
+                    this.dcNum1 = newValue / 100;
+                    this.$emit("wc-num1",newValue)
+                }
+            }
+        }
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                num1 : 1,
+                num2 : 2,
+            },
+            methods :{
+                Num1Change(value){
+                    this.num1 = parseFloat(value)
+                },
+                Num2Change(value){
+                    this.num2 = parseFloat(value)
+                }
+            },
+            components :{
+                cpn
+            }
+        })
+    </script>
+</body>
+</html>

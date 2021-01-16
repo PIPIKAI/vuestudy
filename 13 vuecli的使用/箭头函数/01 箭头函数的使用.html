@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+    </div>
+    <script>
+    //  1. 定义函数
+    const a = function (){
+        return 11
+    }
+    // 2. 在对象里
+    const a = {
+        aa(){
+
+        }
+    }
+    // 3. ES6 中的箭头函数
+    const ccc = () =>{
+        // 无参数 无返回值
+    }
+    // 两个参数
+    const sum = (a,b)=>{
+        return a+b
+    }
+    // 一个参数省略括号
+    const power = num =>{
+        return num*num
+    }
+    // 函数中只有多行代码时
+    const test = ()=>{
+        // 
+        console.log('hello ');
+        console.log('hello vue');
+    }
+    // 函数中只有一行代码时 无论有没有返回值 可以直接这样用
+    const mul = num => num*num
+
+     
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <cpn> </cpn>
+
+        <cpn>
+            <!-- 当父组件对子组件的内容不满意时 , 拿到子组件的内容重新确定样式 -->
+            <!-- 目的是获取子组件的clangueage 
+            在vue 2.5.x 一下 要用template -->
+            <!-- 然后再使用插槽 -->
+            <template slot-scope="slot"> 
+                <!-- <span v-for = "item in slot.data">{{item}} - </span> -->
+                <span  >{{slot.data.join(' - ')}} </span>
+            </template>
+        </cpn>
+    </div>
+    <template id='cpn'>
+        <div>
+            <!-- 首先 , 用一个自定义的属性 例如 :aaa 把数据绑定-->
+            <slot :data="cLangueage">
+                <!-- 需求 , 把这些数据用"-" 来进行;连接显示 -->
+                <ul>
+                    <li v-for = "item in cLangueage">{{item}}</li>
+                </ul>
+            </slot>
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+
+            },
+            components :{
+                cpn :{
+                    template : '#cpn',
+                    data(){
+                        return {
+                            cLangueage : ['Javasript' , 'Java' , 'C++' ,'Python' , 'PHP' , 'C#']
+                        }
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+</html>

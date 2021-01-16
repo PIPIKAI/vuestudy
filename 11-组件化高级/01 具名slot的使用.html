@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div id="app">
+        <cpn>
+            <!-- 使用具名slot 时 ,需要添加 slot属性 -->
+            <button slot ='left'>返回</button>
+        </cpn>
+    </div>
+    <template id='cpn'>
+        <div>
+            <!-- 可以定一个默认值 -->
+            <!-- 当没有替换时 , 就会显示默认值 -->
+            <slot name='left'>左边</slot>
+            <slot name = 'mid'>中间</slot>
+            <slot name='right'>右边</slot>
+            <slot>默认值</slot>
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el :'#app', //表示要管理的元素
+            data :{
+                message : 'hello world!',
+                name : 'ppk', 
+            },
+            components :{
+                cpn :{
+                    template : '#cpn',
+                    data(){
+                        return {
+
+                        }
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+</html>
