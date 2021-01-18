@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        new Promise((resolve,reject)=>{
+            resolve('aaa')
+            // 这里省略了resolve 第一次的resolve不能省略
+        }).then(data => {
+            console.log(data+'第一次');
+            return 'bbb'
+            // 这里省略了resolve
+            // return Promise.resolve('bbb')
+        }).then(data =>{
+            console.log(data + '第二次');
+            return 'ccc'
+        }).then(data =>{
+            console.log(data + '第三次');
+            return 'ccc'
+        }).then(data =>{
+            return Promise.reject('err message in 第四次')
+        }).then(data =>{
+            console.log(data + '第五次');
+            return 'ccc'
+        },err => console.log(err))
+    </script>
+</body>
+</html>

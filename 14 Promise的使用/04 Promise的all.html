@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        // 当我们有请求多个请求 , 并且需要全部通过才能执行下一步的 需求时
+        // 我们就要用到 promise的 all 函数
+        Promise.all([
+            new Promise((resolve , reject)=>{
+                setTimeout(() => {
+                    resolve({name : 'ppk' , age : 18})
+                    // reject('ppk err')
+                }, 2000);
+            }),
+            new Promise((resolve , reject)=>{
+                setTimeout(() => {
+                    resolve({name : 'tsy' , age : 17})
+                }, 1000);
+            })
+            // 当两个全都请求成功后 , 则 进行then
+        ]).then(res=>{
+            // 返回的res 是一个数组 分别是[0,1] 个请求的返回结果
+            console.log(res);
+        },
+        err => console.log(err)
+        )
+    </script>
+</body>
+</html>

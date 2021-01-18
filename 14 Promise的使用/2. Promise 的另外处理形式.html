@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        new Promise((resolve,reject) =>{
+            setTimeout(() => {
+                resolve('hello vuejs')
+                reject('message error')
+            }, 1000);
+            // 可也以不用 catch , 在 then(,) 后第二个参数(函数)可以代替 catch 
+        }).then(data => console.log(data),err => console.log(err))
+    </script>
+</body>
+</html>

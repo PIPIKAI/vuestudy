@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    <div >
+        
+    </div>
+    <script>
+        // 什么情况会用到Promise ?
+        // 一般是异步操作时 , 使用Promise 对这个异步函数进行封装
+        // new -> 构造函数(1. 保存了的一些信息 , 2. 执行传入的函数)
+        // 在执行传入的回调函数时有两个参数(函数)  , 是resolve 和 reject
+        new Promise((resolve,reject)=>{
+            // 成功的时候调用resolve
+            // resolve('hello world')
+            // 失败的时候调用reject
+            reject('error message')
+        }).then(data =>{
+            console.log(data);
+        }).catch(err=>{
+            console.log(err);
+        })
+    </script>
+</body>
+</html>
